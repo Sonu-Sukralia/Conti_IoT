@@ -1,0 +1,5 @@
+netstat -ao
+
+
+
+taskkill /F /PID *8180*

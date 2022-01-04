@@ -1,0 +1,442 @@
+[
+    {
+        "id": "7ee143cdf272d833",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "ff605792cfbe3632",
+        "type": "inject",
+        "z": "7ee143cdf272d833",
+        "name": "Pressure",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=4;i=3:datatype=float",
+        "payloadType": "date",
+        "x": 90,
+        "y": 220,
+        "wires": [
+            [
+                "1e850e60bb643af0"
+            ]
+        ]
+    },
+    {
+        "id": "1e850e60bb643af0",
+        "type": "OpcUa-Client",
+        "z": "7ee143cdf272d833",
+        "endpoint": "622c74b961b0892a",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 340,
+        "y": 220,
+        "wires": [
+            [
+                "58d418b83eca6681",
+                "e17ce1b1bfc05f09",
+                "63fd7153a5e3b390"
+            ]
+        ]
+    },
+    {
+        "id": "5270e47a5b9e36d4",
+        "type": "debug",
+        "z": "7ee143cdf272d833",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 240,
+        "wires": [],
+        "info": "msg.payload = (msg.payload /10 * 9 / 5.0 + 32).toFixed(2);"
+    },
+    {
+        "id": "893a78a6b9e7672b",
+        "type": "ui_gauge",
+        "z": "7ee143cdf272d833",
+        "name": "Pressure",
+        "group": "71999d5c5a0976c0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Pressure1",
+        "label": "Bar",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "300",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 800,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "58d418b83eca6681",
+        "type": "ui_chart",
+        "z": "7ee143cdf272d833",
+        "name": "",
+        "group": "105c6d2cee27251e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Pressure1",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "300",
+        "removeOlder": 1,
+        "removeOlderPoints": "300",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 990,
+        "y": 400,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "3cc46b6028b860b0",
+        "type": "inject",
+        "z": "7ee143cdf272d833",
+        "name": "Pressure",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "ns=4;i=2:datatype=float",
+        "payloadType": "date",
+        "x": 130,
+        "y": 500,
+        "wires": [
+            [
+                "362f6cc121a350dd"
+            ]
+        ]
+    },
+    {
+        "id": "362f6cc121a350dd",
+        "type": "OpcUa-Client",
+        "z": "7ee143cdf272d833",
+        "endpoint": "622c74b961b0892a",
+        "action": "read",
+        "deadbandtype": "a",
+        "deadbandvalue": 1,
+        "time": 10,
+        "timeUnit": "s",
+        "certificate": "n",
+        "localfile": "",
+        "localkeyfile": "",
+        "securitymode": "None",
+        "securitypolicy": "None",
+        "name": "",
+        "x": 360,
+        "y": 500,
+        "wires": [
+            [
+                "84168d01e7d6e922",
+                "c844e2dceca55ad7",
+                "58d418b83eca6681",
+                "de17434d1ceac0a7"
+            ]
+        ]
+    },
+    {
+        "id": "7ffbba20dc4737e7",
+        "type": "debug",
+        "z": "7ee143cdf272d833",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 770,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "589ea7a26770984f",
+        "type": "ui_gauge",
+        "z": "7ee143cdf272d833",
+        "name": "Pressure",
+        "group": "71999d5c5a0976c0",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "Pressure2",
+        "label": "Bar",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "300",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "className": "",
+        "x": 800,
+        "y": 500,
+        "wires": []
+    },
+    {
+        "id": "84168d01e7d6e922",
+        "type": "ui_chart",
+        "z": "7ee143cdf272d833",
+        "name": "",
+        "group": "105c6d2cee27251e",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "label": "Pressure2",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "300",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 890,
+        "y": 680,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e17ce1b1bfc05f09",
+        "type": "function",
+        "z": "7ee143cdf272d833",
+        "name": "",
+        "func": "num=msg.payload;\nmsg.payload=num.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 640,
+        "y": 180,
+        "wires": [
+            [
+                "893a78a6b9e7672b",
+                "5270e47a5b9e36d4"
+            ]
+        ]
+    },
+    {
+        "id": "c844e2dceca55ad7",
+        "type": "function",
+        "z": "7ee143cdf272d833",
+        "name": "",
+        "func": "num=msg.payload;\nmsg.payload=num.toFixed(2);\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 500,
+        "wires": [
+            [
+                "589ea7a26770984f",
+                "7ffbba20dc4737e7"
+            ]
+        ]
+    },
+    {
+        "id": "bfbddc02120e581b",
+        "type": "mysql",
+        "z": "7ee143cdf272d833",
+        "mydb": "68b038c1e70a9835",
+        "name": "test1",
+        "x": 1010,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "63fd7153a5e3b390",
+        "type": "function",
+        "z": "7ee143cdf272d833",
+        "name": "",
+        "func": "pressure=msg.payload;\nmsg.topic=\"INSERT INTO sensor(pressure) VALUES (?)\";\nmsg.payload=[pressure];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 800,
+        "y": 300,
+        "wires": [
+            [
+                "bfbddc02120e581b"
+            ]
+        ]
+    },
+    {
+        "id": "de17434d1ceac0a7",
+        "type": "function",
+        "z": "7ee143cdf272d833",
+        "name": "",
+        "func": "pressure1=msg.payload;\nmsg.topic=\"INSERT INTO sensor1(pressure1) VALUES (?)\";\nmsg.payload=[pressure1];\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 400,
+        "wires": [
+            [
+                "bfbddc02120e581b"
+            ]
+        ]
+    },
+    {
+        "id": "622c74b961b0892a",
+        "type": "OpcUa-Endpoint",
+        "endpoint": "opc.tcp://192.168.0.159:4840",
+        "secpol": "None",
+        "secmode": "None",
+        "login": false
+    },
+    {
+        "id": "71999d5c5a0976c0",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "edd5bcc687ecbc36",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "105c6d2cee27251e",
+        "type": "ui_group",
+        "name": "Default",
+        "tab": "cacd8a6932128061",
+        "order": 1,
+        "disp": true,
+        "width": "15",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "68b038c1e70a9835",
+        "type": "MySQLdatabase",
+        "name": "",
+        "host": "127.0.0.1",
+        "port": "3306",
+        "db": "test1",
+        "tz": "",
+        "charset": "UTF8"
+    },
+    {
+        "id": "edd5bcc687ecbc36",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "cacd8a6932128061",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
